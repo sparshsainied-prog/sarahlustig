@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Sarah Lustig | The Westminster Mysteries</title>
+<meta name="description" content="The Westminster Mysteries by Sarah Lustig: Theo Duncan, the Prime Minister's son, and his friend Sammy solve the mysteries that baffle Parliament. For readers aged 10 and up.">
+<meta property="og:title" content="A homepage for Sarah Lustig, made by Sparsh Saini">
+<meta property="og:description" content="A homepage idea for Sarah Lustig and the Westminster Mysteries, made by Sparsh Saini. Not her official site.">
+<meta property="og:image" content="https://sparshsainied-prog.github.io/sarahlustig/img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%23fbf4e6' stroke='%23161616' stroke-width='3'/><circle cx='14' cy='14' r='6' fill='none' stroke='%23161616' stroke-width='3'/><path d='M18 18l7 7' stroke='%23161616' stroke-width='4'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/b1.jpg">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Everything is lifted from the three Westminster Mysteries covers: the red, blue and green patterned
+   grounds, the gold of the mace and keys, the silver candelabra, the white high-contrast display serif
+   of the titles (Playfair Display), a bookish serif to read in (Libre Baskerville), and the series badge,
+   drawn like a Westminster street sign. */
+:root {
+  --red: #c6352a;
+  --red-deep: #8f2019;
+  --blue: #22408f;
+  --blue-deep: #142a63;
+  --green: #1f6a45;
+  --green-deep: #123f29;
+  --gold: #e4b43a;
+  --cream: #fbf4e6;
+  --ink: #161616;
+  --soft: #5d5650;
+  --head: "Playfair Display", Georgia, serif;
+  --read: "Libre Baskerville", Georgia, serif;
+  --gutter: clamp(1rem, 5vw, 4rem);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--read); font-size: 1.04rem; line-height: 1.65; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.strip { background: var(--ink); color: var(--cream); text-align: center; font-size: .9rem; padding: .45rem var(--gutter); position: relative; z-index: 30; }
+
+/* ---------- nav: the series badge, a Westminster street sign ---------- */
+.sign { position: fixed; z-index: 40; bottom: 12px; left: 10px; width: 120px; border: 0; padding: 0; background: none; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .2s; filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .25)); }
+.sign.on { opacity: 1; pointer-events: auto; }
+.sign img { width: 100%; }
+.menu { position: fixed; inset: 0; z-index: 50; background: var(--cream); display: none; padding: 5rem var(--gutter) 2rem; overflow: auto; }
+.menu.open { display: block; }
+.menu ol { list-style: none; padding: 0; margin: 0; }
+.menu a { display: block; font-family: var(--head); font-weight: 800; font-size: clamp(2rem, 9vw, 3.2rem); line-height: 1.15; padding: .5rem 0; text-decoration: none; border-bottom: 2px solid var(--ink); }
+.menu li:nth-child(3n+1) a { color: var(--red); } .menu li:nth-child(3n+2) a { color: var(--blue); } .menu li:nth-child(3n) a { color: var(--green); }
+.menu .x { position: absolute; top: 1rem; right: 1rem; font-family: var(--read); font-weight: 700; background: var(--ink); color: var(--cream); border: 0; padding: .45rem .9rem; border-radius: 6px; cursor: pointer; }
+
+/* ---------- hero: the trilogy as one shelf, a clue lifted from each ---------- */
+.hero { position: relative; height: 360vh; }
+.stage { --bw: min(70vw, calc((100svh - 280px) * .658)); --gap: max(5vw, 28px); position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--cream); }
+.shelf { position: absolute; top: 18px; left: 50%; display: flex; gap: var(--gap); will-change: transform; transform: translateX(calc(var(--bw) / -2)); }
+.book { position: relative; flex: none; width: var(--bw); aspect-ratio: 800 / 1216; background: center / 100% 100% no-repeat; box-shadow: 0 1px 0 rgba(0, 0, 0, .1), 0 16px 32px rgba(40, 20, 10, .25); border-radius: 2px 6px 6px 2px; }
+.book::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(90deg, rgba(0, 0, 0, .18), transparent 3%, rgba(255, 255, 255, .14) 4.2%, transparent 7%); pointer-events: none; }
+.b1 { background-image: url(img/b1.jpg); } .b2 { background-image: url(img/b2.jpg); } .b3 { background-image: url(img/b3.jpg); }
+.pl { position: absolute; display: block; max-width: none; will-change: transform, opacity; }
+.words { position: absolute; left: var(--gutter); right: var(--gutter); top: calc(18px + var(--bw) * 1.52 + 16px); }
+.case { display: grid; margin: 0 0 .5rem; }
+.case > p { grid-area: 1 / 1; margin: 0; font-family: var(--head); font-style: italic; font-weight: 600; font-size: 1.12rem; will-change: opacity; }
+.case .c1 { color: var(--red); } .case .c2 { color: var(--blue); } .case .c3 { color: var(--green); }
+.words h1 { font-family: var(--head); font-weight: 800; font-size: clamp(1.45rem, 6.6vw, 1.9rem); line-height: 1.1; margin: 0 0 .5rem; }
+.words .line { margin: 0 0 .9rem; font-size: 1rem; line-height: 1.5; max-width: 36rem; }
+.btns { display: flex; flex-wrap: wrap; gap: .7rem 1.2rem; align-items: center; }
+.btn { display: inline-block; text-decoration: none; font-family: var(--read); font-weight: 700; font-size: 1rem; color: var(--cream); background: var(--red); padding: .62rem 1.1rem; border-radius: 8px; border: 2px solid var(--ink); box-shadow: 0 0 0 3px var(--cream) inset, 0 3px 0 var(--ink); }
+.btn:hover { background: var(--red-deep); }
+.btn.bl { background: var(--blue); } .btn.gr { background: var(--green); }
+.link { font-weight: 700; text-decoration: underline; text-decoration-color: var(--gold); text-decoration-thickness: 3px; text-underline-offset: 5px; }
+@media (min-width: 900px) {
+  .sign { bottom: auto; top: 10px; width: 140px; }
+  .stage { --bw: min(calc((100svh - 300px) * .658), 26vw); --gap: 3.2vw; }
+  .shelf { top: 34px; }
+  .words { top: calc(34px + var(--bw) * 1.52 + 26px); left: 50%; right: auto; width: min(64rem, 86vw); transform: translateX(-50%); display: grid; grid-template-columns: 1fr 1fr; gap: 0 3rem; align-items: start; }
+  .case { grid-column: 1 / -1; }
+  .words h1 { font-size: 2.2rem; }
+  .words .line { font-size: 1.08rem; }
+}
+
+/* ---------- sections ---------- */
+.sec { padding: clamp(3.5rem, 9vw, 6.5rem) var(--gutter); }
+.in { max-width: 1120px; margin: 0 auto; }
+h2 { font-family: var(--head); font-weight: 800; font-size: clamp(2.2rem, 8.5vw, 3.8rem); line-height: 1.06; margin: 0 0 1.2rem; }
+h2 i { font-weight: 600; }
+h3 { font-family: var(--head); font-weight: 800; font-size: 1.7rem; line-height: 1.1; margin: 0 0 .3rem; }
+p { margin: 0 0 1rem; max-width: 38rem; }
+.books { display: grid; gap: 0; }
+.bk { display: grid; gap: 1.6rem; padding: 3rem var(--gutter); color: #fff; }
+.bk .in { display: grid; gap: 1.8rem; width: 100%; }
+@media (min-width: 860px) { .bk .in { grid-template-columns: 260px 1fr; gap: 4rem; align-items: start; } }
+.bk img { width: min(220px, 56vw); box-shadow: 0 14px 28px rgba(0, 0, 0, .35); }
+.bk .n { font-family: var(--head); font-style: italic; font-weight: 600; color: var(--gold); margin: 0 0 .2rem; }
+.bk .facts { font-size: .92rem; opacity: .85; margin-bottom: 1.2rem; }
+.bk .btn { background: var(--cream); color: var(--ink); box-shadow: 0 0 0 3px var(--gold) inset, 0 3px 0 var(--ink); }
+.bk .link { text-decoration-color: var(--gold); }
+.k1 { background: var(--red-deep); } .k2 { background: var(--blue-deep); } .k3 { background: var(--green-deep); }
+.bundle { background: var(--ink); color: var(--cream); text-align: center; padding: 1.4rem var(--gutter); }
+.bundle p { margin: 0 auto; max-width: none; }
+.bundle a { color: var(--gold); font-weight: 700; }
+
+.praise { display: grid; gap: 2rem; margin-top: 2rem; }
+@media (min-width: 860px) { .praise { grid-template-columns: repeat(2, 1fr); gap: 2.4rem 4rem; } }
+.praise blockquote { margin: 0; font-family: var(--head); font-style: italic; font-weight: 600; font-size: 1.35rem; line-height: 1.35; }
+.praise cite { display: block; font-family: var(--read); font-style: normal; font-weight: 400; font-size: .9rem; color: var(--soft); margin-top: .5rem; }
+.awards { list-style: none; padding: 0; margin: 0; }
+.awards li { padding: .7rem 0; border-top: 2px solid var(--ink); }
+.awards li:last-child { border-bottom: 2px solid var(--ink); }
+.awards b { font-family: var(--head); font-weight: 800; }
+
+.fair { background: var(--blue); color: #fff; }
+.fair .plate { display: inline-block; background: var(--cream); color: var(--ink); border: 3px solid var(--ink); border-radius: 12px; box-shadow: 0 0 0 4px var(--cream), 0 0 0 7px var(--ink); padding: .4rem 1.4rem .2rem; margin: .6rem 0 1.4rem 7px; font-family: var(--head); font-weight: 800; font-size: clamp(3.6rem, 16vw, 6.4rem); line-height: 1; }
+.fair .when { font-family: var(--head); font-weight: 800; font-size: 1.4rem; margin: 0; }
+
+.sarah .two { display: grid; gap: 2.4rem; }
+@media (min-width: 860px) { .sarah .two { grid-template-columns: 5fr 7fr; gap: 4rem; align-items: start; } }
+.sarah img { border-radius: 4px; box-shadow: 10px 10px 0 var(--gold); width: min(420px, 100%); }
+.sarah .pull { font-family: var(--head); font-style: italic; font-weight: 600; font-size: 1.35rem; line-height: 1.4; border-left: 4px solid var(--red); padding-left: 1rem; }
+
+.schools { background: var(--green); color: #fff; }
+.schools .two { display: grid; gap: 2rem; }
+@media (min-width: 860px) { .schools .two { grid-template-columns: 1fr 1fr; gap: 4rem; } }
+.schools .big { font-family: var(--head); font-weight: 800; font-size: clamp(4rem, 18vw, 7rem); line-height: .9; color: var(--gold); margin: 0 0 .5rem; }
+.schools ul { list-style: none; padding: 0; margin: 0 0 1.4rem; }
+.schools li { padding: .55rem 0; border-top: 1px solid rgba(255, 255, 255, .3); }
+.schools li a { font-weight: 700; }
+.schools .btn { background: var(--cream); color: var(--ink); box-shadow: 0 0 0 3px var(--gold) inset, 0 3px 0 var(--ink); }
+footer { background: var(--ink); color: #d8cfc0; text-align: center; padding: 1.4rem var(--gutter) 2.2rem; font-size: .92rem; }
+
+/* no JavaScript or reduced motion: the three covers side by side, no pin */
+html:not(.js) .hero, html.still .hero { height: auto; }
+html:not(.js) .stage, html.still .stage { position: relative; height: auto; padding: 18px 0 2rem; overflow: visible; }
+html:not(.js) .shelf, html.still .shelf { position: relative; left: auto; top: auto; transform: none !important; --bw: min(30vw, 260px); justify-content: center; gap: 3vw; }
+html:not(.js) .pl, html.still .pl { display: none; }
+html:not(.js) .words, html.still .words { position: relative; left: auto; right: auto; top: auto; transform: none; width: auto; padding: 1.4rem var(--gutter) 0; }
+html:not(.js) .case, html.still .case { display: none; }
+@media (min-width: 900px) { html:not(.js) .words, html.still .words { max-width: 64rem; margin: 0 auto; } }
+</style>
+</head>
+<body>
+<div class="strip">A homepage idea made by Sparsh Saini for Sarah Lustig. Not their official site.</div>
+
+<button class="sign" aria-controls="menu" aria-expanded="false" aria-label="Open the menu"><img src="img/badge.png" alt="Westminster Mysteries" width="554" height="302"></button>
+<div class="menu" id="menu" role="dialog" aria-label="Menu">
+  <button class="x">Close</button>
+  <ol>
+    <li><a href="#books">The three books</a></li>
+    <li><a href="#praise">What readers say</a></li>
+    <li><a href="#fair">Find me at S52</a></li>
+    <li><a href="#sarah">About Sarah</a></li>
+    <li><a href="#schools">For schools</a></li>
+  </ol>
+</div>
+
+<main>
+<section class="hero" id="top" aria-label="The three Westminster Mysteries covers, a clue lifted from each">
+  <div class="stage">
+    <div class="shelf">
+      <div class="book b1" role="img" aria-label="Mystery in the Palace of Westminster: a gold mace on a red patterned ground, with a tabby cat and a green ribbon.">
+        <img class="pl" data-k="b1-clue-sh" src="img/b1-clue-sh.webp" alt=""><img class="pl" data-k="b1-clue" src="img/b1-clue.webp" alt="">
+      </div>
+      <div class="book b2" role="img" aria-label="Body in the Thames: two crossed gold keys in blue river water, with fish and reeds.">
+        <img class="pl" data-k="b2-clue-sh" src="img/b2-clue-sh.webp" alt=""><img class="pl" data-k="b2-clue" src="img/b2-clue.webp" alt="">
+      </div>
+      <div class="book b3" role="img" aria-label="Murder at Speaker's House: a fallen silver candelabra among flames on a green ground, with a red squirrel.">
+        <img class="pl" data-k="b3-clue-sh" src="img/b3-clue-sh.webp" alt=""><img class="pl" data-k="b3-clue" src="img/b3-clue.webp" alt="">
+      </div>
+    </div>
+    <div class="words">
+      <div class="case" aria-hidden="true"><p class="c1">Book one: the mace is stolen</p><p class="c2">Book two: a body in the Thames</p><p class="c3">Book three: fire at Speaker's House</p></div>
+      <h1>The Westminster Mysteries, by Sarah Lustig</h1>
+      <div>
+        <p class="line">Theo Duncan is just an ordinary student. Except he also happens to be the son of the Prime Minister. With his friend Sammy, he solves the mysteries that baffle Parliament.</p>
+        <div class="btns"><a class="btn" href="https://www.sarahlustig.com/books">Signed copies</a><a class="link" href="#fair">Table S52, Oxford</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="books" id="books" aria-label="The three books">
+  <article class="bk k1">
+    <div class="in">
+      <img src="img/b1.jpg" alt="The cover of Mystery in the Palace of Westminster." width="800" height="1216" loading="lazy">
+      <div>
+        <p class="n">Book one</p>
+        <h3>Mystery in the Palace of Westminster</h3>
+        <p>When the parliamentary mace is stolen from inside the Houses of Parliament, Theo is determined to help his dad get it back. But he can't do it alone. And when help is offered, there's a problem. It comes from the new girl at school, Sammy Jhor, who's a supporter of the opposition party.</p>
+        <p class="facts">Paperback, 272 pages. Highly Commended, Selfies Children's Book Award 2023.</p>
+        <div class="btns"><a class="btn" href="https://www.sarahlustig.com/product-page/mystery-in-the-palace-of-westminster">Signed copy, £7.99</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="bk k2">
+    <div class="in">
+      <img src="img/b2.jpg" alt="The cover of Body in the Thames." width="800" height="1216" loading="lazy">
+      <div>
+        <p class="n">Book two</p>
+        <h3>Body in the Thames</h3>
+        <p>While Theo and Sammy grapple with work experience inside Parliament, Westminster is shaken by the discovery of a body in the Thames. All signs point to murder. With security heightened, they must be especially clever to evade detection as they question MPs and search the Palace for clues.</p>
+        <p class="facts">Paperback, 288 pages. Shortlisted, Selfies Book Awards 2025.</p>
+        <div class="btns"><a class="btn" href="https://www.sarahlustig.com/product-page/body-in-the-thames-2">Signed copy, £7.99</a></div>
+      </div>
+    </div>
+  </article>
+  <article class="bk k3">
+    <div class="in">
+      <img src="img/b3.jpg" alt="The cover of Murder at Speaker's House." width="800" height="1216" loading="lazy">
+      <div>
+        <p class="n">Book three, the finale, out now</p>
+        <h3>Murder at Speaker's House</h3>
+        <p>An arsonist sets fire to one of the grandest parts of Parliament, Speaker's House, and this time somebody is dead. Everyone suspects the radical Novembrists. But is someone framing them to thwart the referendum? To find out, Theo and Sammy have to go undercover and put their own lives on the line.</p>
+        <p class="facts">Paperback, 304 pages. Published 18 September 2026.</p>
+        <div class="btns"><a class="btn" href="https://www.sarahlustig.com/product-page/murder-at-speaker-s-house">Signed copy, £8.99</a></div>
+      </div>
+    </div>
+  </article>
+  <p class="bundle">All three books together: <a href="https://www.sarahlustig.com/product-page/westminster-mysteries-bundle">the trilogy bundle, £19.99</a></p>
+</section>
+
+<section class="sec" id="praise">
+  <div class="in">
+    <h2>"A great adventure" that <i>romps along with humour</i></h2>
+    <ul class="awards">
+      <li><b>Highly Commended,</b> Selfies Children's Book Award 2023 (Mystery in the Palace of Westminster)</li>
+      <li><b>Finalist,</b> The Wishing Shelf Book Awards (Mystery in the Palace of Westminster)</li>
+      <li><b>Shortlisted,</b> Selfies Book Awards 2025 (Body in the Thames)</li>
+    </ul>
+    <div class="praise">
+      <blockquote>"The book explained the inner workings of parliament in an easily understandable and age appropriate manner, making it a great introduction to politics for children."<cite>Georgina, reviewer</cite></blockquote>
+      <blockquote>"A great introduction to politics while also offering a twisting mystery to entertain readers."<cite>LoveReading 4 Kids</cite></blockquote>
+      <blockquote>"I adored this book, it was just the sort of book that I liked to read as a child."<cite>Aria, bookstagrammer</cite></blockquote>
+      <blockquote>"I would have absolutely loved this book as a kid, and still thoroughly enjoyed it as an adult."<cite>Georgina, reviewer</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="sec fair" id="fair">
+  <div class="in">
+    <p class="when">Oxford Indie Book Fair, Sunday 22 November 2026</p>
+    <div class="plate">S52</div>
+    <p>All three books on one table. Come and say hello, and tell me which suspect you had your eye on.</p>
+  </div>
+</section>
+
+<section class="sec sarah" id="sarah">
+  <div class="in two">
+    <img src="img/sarah.jpg" alt="Sarah at her writing desk, seen from behind, reflected in a dressing-table mirror, with books stacked beside her." width="560" height="708" loading="lazy">
+    <div>
+      <h2>Hello, I'm Sarah</h2>
+      <p>I grew up in London and went to school in Westminster, with politicians' children. My experiences at school and my interest in politics gave me the idea for the Westminster Mysteries.</p>
+      <p>I came late to reading for myself. I didn't fall back in love with books until I was about twelve, in the school library, with The Ruby in the Smoke by Philip Pullman. I've wanted to be a writer ever since.</p>
+      <p class="pull">I've been a book editor for nearly 15 years, and now live in Buckinghamshire, reading, writing and pottering on my balcony garden.</p>
+      <a class="link" href="https://www.instagram.com/sarahlbooks/">@sarahlbooks</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec schools" id="schools">
+  <div class="in two">
+    <div>
+      <h2>For schools</h2>
+      <p class="big">20% off</p>
+      <p>Schools can order the books in bulk at a 20% discount. Send me the name of your school and your role, and I'll send you the code.</p>
+      <div class="btns"><a class="btn" href="https://www.sarahlustig.com/contact">Ask for the code</a></div>
+    </div>
+    <div>
+      <p>Free resources for students learning about politics:</p>
+      <ul>
+        <li><a href="https://www.sarahlustig.com/extended-glossary">The extended glossary</a>, with words you'll meet beyond the book</li>
+        <li><a href="https://www.sarahlustig.com/whos-who">Who's who</a> in British politics, past and present</li>
+        <li><a href="https://www.sarahlustig.com/blog">The blog</a>, with insider stories behind the books</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>A mockup made by Sparsh Saini for Sarah Lustig. Not affiliated, not live.</footer>
+
+<script>
+(() => {
+  const sign = document.querySelector('.sign'), menu = document.getElementById('menu');
+  const setOpen = o => { menu.classList.toggle('open', o); sign.setAttribute('aria-expanded', o); if (o) menu.querySelector('a').focus(); };
+  sign.addEventListener('click', () => setOpen(true));
+  menu.addEventListener('click', e => { if (e.target.closest('.x') || e.target.closest('a')) setOpen(false); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+
+  // each cover's clue, in cover pixels (800 x 1216), lifted by build/make-planes.py
+  const CW = 800, CH = 1216;
+  const BOX = {"b1-clue": [39, 782, 701, 315], "b1-clue-sh": [9, 752, 761, 375], "b2-clue": [149, 676, 505, 475], "b2-clue-sh": [119, 646, 565, 535], "b3-clue": [31, 764, 572, 412], "b3-clue-sh": [1, 734, 632, 472]};
+  const els = {};
+  document.querySelectorAll('.pl').forEach(el => {
+    const [x, y, w, h] = BOX[el.dataset.k];
+    Object.assign(el.style, { left: x / CW * 100 + '%', top: y / CH * 100 + '%', width: w / CW * 100 + '%', height: h / CH * 100 + '%' });
+    els[el.dataset.k] = el;
+  });
+  const still = matchMedia('(prefers-reduced-motion: reduce)');
+  const hero = document.querySelector('.hero'), shelf = document.querySelector('.shelf'), b1 = document.querySelector('.b1');
+  const cases = [...document.querySelectorAll('.case p')];
+  const clamp = v => v < 0 ? 0 : v > 1 ? 1 : v;
+  const ease = t => t * t * (3 - 2 * t);
+  let bw = 1, step = 1, top = 0, run = 1, ticking = false, lastP = -1;
+  function measure() {
+    const r = b1.getBoundingClientRect(); bw = r.width;
+    step = document.querySelector('.b2').getBoundingClientRect().left - r.left;
+    top = hero.getBoundingClientRect().top + scrollY; run = Math.max(1, hero.offsetHeight - innerHeight);
+  }
+  // a clue lifts off its cover toward you (a slight turn, its shadow spreading), then is set back down
+  function lift(k, p, t0, spin) {
+    const up = ease(clamp((p - t0) / .1)) * (1 - ease(clamp((p - t0 - .17) / .08)));
+    const u = bw / CW;
+    els[k].style.transform = `translate3d(0,${(-up * 46 * u).toFixed(1)}px,0) rotate(${(up * spin).toFixed(2)}deg) scale(${(1 + up * .16).toFixed(4)})`;
+    els[k + '-sh'].style.opacity = (up * .85).toFixed(3);
+    els[k + '-sh'].style.transform = `translate3d(${(up * 16 * u).toFixed(1)}px,${(up * 30 * u).toFixed(1)}px,0) scale(${(1 + up * .08).toFixed(3)})`;
+    return up;
+  }
+  function draw(p) {
+    // book one's mace, slide along the shelf, book two's keys, slide, book three's candelabra (it stays up)
+    lift('b1-clue', p, .04, -5);
+    lift('b2-clue', p, .4, 5);
+    const t3 = ease(clamp((p - .76) / .1));
+    els['b3-clue'].style.transform = `translate3d(0,${(-t3 * 46 * bw / CW).toFixed(1)}px,0) rotate(${(-t3 * 4).toFixed(2)}deg) scale(${(1 + t3 * .16).toFixed(4)})`;
+    els['b3-clue-sh'].style.opacity = (t3 * .85).toFixed(3);
+    els['b3-clue-sh'].style.transform = `translate3d(${(t3 * 16 * bw / CW).toFixed(1)}px,${(t3 * 30 * bw / CW).toFixed(1)}px,0) scale(${(1 + t3 * .08).toFixed(3)})`;
+    const slide = ease(clamp((p - .26) / .14)) + ease(clamp((p - .62) / .14));
+    shelf.style.transform = `translate3d(${(-bw / 2 - slide * step).toFixed(1)}px,0,0)`;
+    const w = [1 - ease(clamp((p - .3) / .06)), ease(clamp((p - .3) / .06)) * (1 - ease(clamp((p - .66) / .06))), ease(clamp((p - .66) / .06))];
+    cases.forEach((c, i) => c.style.opacity = w[i].toFixed(3));
+  }
+  function frame() { ticking = false; sign.classList.toggle('on', scrollY > 60); const p = still.matches ? 1 : clamp((scrollY - top) / run); if (Math.abs(p - lastP) < .0004) return; lastP = p; if (!still.matches) draw(p); }
+  function setMode() {
+    document.documentElement.classList.toggle('still', still.matches);
+    if (still.matches) { shelf.style.transform = ''; }
+    measure(); lastP = -1; frame();
+  }
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
+  addEventListener('resize', () => { measure(); lastP = -1; frame(); });
+  still.addEventListener('change', setMode);
+  setMode();
+})();
+</script>
+</body>
+</html>
